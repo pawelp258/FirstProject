@@ -1,0 +1,5 @@
+.Objects {
+    text-align: center;
+    display: flex;
+    height: calc(100vh - 61px);
+}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="66.788" viewBox="0 0 80 66.788">
+  <defs>
+    <filter id="icon_wydarzenia" x="18.762" y="0" width="46.742" height="46.742" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.459"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Wydarzenia" x="0" y="32.788" width="80" height="34" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="wydarzenia-2" data-name="wydarzenia" transform="translate(3.208 -10.843)">
+    <g transform="matrix(1, 0, 0, 1, -3.21, 10.84)" filter="url(#icon_wydarzenia)">
+      <path id="icon_wydarzenia-2" data-name="icon/wydarzenia" d="M25.516,4.613h1.955a3.27,3.27,0,0,1,3.27,3.271V27.471a3.269,3.269,0,0,1-3.27,3.271H5.27A3.27,3.27,0,0,1,2,27.471V7.884A3.269,3.269,0,0,1,5.27,4.613H7.226V3.306a1.306,1.306,0,1,1,2.613,0V4.613h2.613V3.306a1.306,1.306,0,1,1,2.613,0V4.613h2.613V3.306a1.306,1.306,0,1,1,2.613,0V4.613H22.9V3.306a1.306,1.306,0,1,1,2.613,0V4.613Zm0,2.613V8.532a1.306,1.306,0,1,1-2.613,0V7.226H20.29V8.532a1.306,1.306,0,0,1-2.613,0V7.226H15.065V8.532a1.306,1.306,0,0,1-2.613,0V7.226H9.839V8.532a1.306,1.306,0,0,1-2.613,0V7.226H5.27a.656.656,0,0,0-.657.658V27.471a.657.657,0,0,0,.657.658h22.2a.656.656,0,0,0,.657-.658V7.884a.657.657,0,0,0-.657-.658ZM8.532,15.718a1.306,1.306,0,0,1,0-2.613H22.25a1.306,1.306,0,1,1,0,2.613Zm0,4.573a1.306,1.306,0,1,1,0-2.613H24.21a1.306,1.306,0,0,1,0,2.613Zm0,4.573a1.306,1.306,0,1,1,0-2.613h9.145a1.306,1.306,0,0,1,0,2.613Z" transform="translate(25.76 4)" fill="#fff"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -3.21, 10.84)" filter="url(#Wydarzenia)">
+      <text id="Wydarzenia-3" data-name="Wydarzenia" transform="translate(9 51.79)" fill="#fff" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Wydarzenia</tspan></text>
+    </g>
+  </g>
+</svg>

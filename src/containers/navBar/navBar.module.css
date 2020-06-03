@@ -1,0 +1,66 @@
+.NavBar{
+    width: calc(100vw - 230px);
+    padding: 0 0px 0 0px;
+    background-color: #FBFBFB;
+    margin: 0px;
+    box-sizing: border-box;
+    height: 61px;
+    text-align: left;
+    display: flex;
+    line-height: 61px;
+    align-items: center;
+    justify-items: center;
+    border-bottom: 2px solid #5D6472;
+    position: fixed;        
+    top: 0;
+    left: 230px;
+    right: 0;
+    z-index: 500;
+}
+
+
+.NavBarFilters {
+    cursor: pointer;
+}
+
+.NavBarLogo {
+    border-right: 2px solid #575353;
+}
+
+.NavBarUserPhotoContainer{
+    display: flex;
+    margin: 0px 0px 0px 15px;
+}
+
+.NavBarUserPhotoContainer ol {
+    margin: -10px 0 0 15px;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    height: 59px;
+}
+
+.NavBarUserPhotoContainer ol > li {
+    margin: 0;
+    height: 20px;
+    line-height: 55px;
+    padding: 0;
+}
+
+.NavBarAvatar{
+	width: 50px;
+	height: 50px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+    display: block;
+}
+
+.leftNavBar {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    margin: 0 10px 0 0;
+}

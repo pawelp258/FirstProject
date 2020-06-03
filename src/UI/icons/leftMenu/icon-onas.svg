@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38.387" height="38.387" viewBox="0 0 38.387 38.387">
+  <defs>
+    <filter id="icon_onas" x="0" y="0" width="38.387" height="38.387" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.459"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#icon_onas)">
+    <path id="icon_onas-2" data-name="icon/onas" d="M12.194,22.387A10.194,10.194,0,1,1,22.387,12.194,10.194,10.194,0,0,1,12.194,22.387Zm0-1.853a8.34,8.34,0,1,0-8.34-8.34A8.34,8.34,0,0,0,12.194,20.534Zm0-12.047a.927.927,0,1,1,.927-.927A.927.927,0,0,1,12.194,8.487ZM11.267,10.8a.927.927,0,1,1,1.853,0v6.023a.927.927,0,1,1-1.853,0Z" transform="translate(7 4)" fill="#bacad2"/>
+  </g>
+</svg>

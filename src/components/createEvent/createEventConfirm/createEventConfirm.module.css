@@ -1,0 +1,39 @@
+.CreateEventConfirmContainer {
+    background-color: white;
+}
+
+.CreateEventConfirmField {
+    width: 100%;
+    display: flex;
+    margin: 12px 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.CreateEventConfirmButtons {
+    display: flex;
+}
+
+.CreateEventConfirmButton {
+    font-size: 12px;
+    margin: 10px 5px 10px 5px;
+    background-color: #55B77F;
+    color: white;
+    border-radius: 15px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.createEventValue {
+    width: 80%;
+    text-align: left;
+    padding: 0 20px;
+    font-size: 18px;
+}
+
+.CreateEventConfirmWarning {
+    margin: 10px 0;
+    font-size: 12px;
+    color: #707070;
+}

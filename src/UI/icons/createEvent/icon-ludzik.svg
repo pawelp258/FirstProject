@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44.779" height="52.85" viewBox="0 0 44.779 52.85">
+  <defs>
+    <filter id="icon_ludzik" x="0" y="0" width="44.779" height="52.85" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#icon_ludzik)">
+    <path id="icon_ludzik-2" data-name="icon/ludzik" d="M48.592,33.438A1.416,1.416,0,0,0,50,34.85H73.959a1.416,1.416,0,0,0,1.412-1.412c0-7.812-3.53-14.519-8.495-17.2a8.86,8.86,0,1,0-9.766,0C52.122,18.919,48.592,25.626,48.592,33.438ZM61.981,2.824a6.024,6.024,0,1,1-6.024,6.024A6.036,6.036,0,0,1,61.981,2.824Zm0,14.942c5.506,0,10.024,6.283,10.519,14.26H51.463C51.957,24.049,56.475,17.766,61.981,17.766Z" transform="translate(-39.59 6)" fill="#454f63"/>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="39.101" height="39.101" viewBox="0 0 39.101 39.101">
+  <defs>
+    <filter id="icon_wyloguj" x="0" y="0" width="39.101" height="39.101" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.588"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#icon_wyloguj)">
+    <path id="icon_wyloguj-2" data-name="icon/wyloguj" d="M11.509,11.591l3.638-3.638A.959.959,0,1,0,13.791,6.6L8.515,11.872a.959.959,0,0,0,0,1.356L13.791,18.5a.959.959,0,0,0,1.356-1.356L11.509,13.51H22.146a.959.959,0,0,0,0-1.918Zm2-7.673A.959.959,0,0,0,13.51,2H4.4A2.4,2.4,0,0,0,2,4.4V20.7a2.4,2.4,0,0,0,2.4,2.4H13.51a.959.959,0,1,0,0-1.918H4.4a.483.483,0,0,1-.484-.483V4.4A.482.482,0,0,1,4.4,3.918Z" transform="translate(7 4)" fill="#bacad2"/>
+  </g>
+</svg>

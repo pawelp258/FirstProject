@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="71" viewBox="0 0 80 71">
+  <defs>
+    <filter id="Wyloguj_się" x="0" y="37" width="80" height="34" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.58"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="path" x="14.901" y="0" width="50.219" height="50.219" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.588"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="wyloguj" transform="translate(-0.792 -611.63)">
+    <g transform="matrix(1, 0, 0, 1, 0.79, 611.63)" filter="url(#Wyloguj_się)">
+      <text id="Wyloguj_się-2" data-name="Wyloguj się" transform="translate(40 56)" fill="#fff" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-30.639" y="0">Wyloguj się</tspan></text>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0.79, 611.63)" filter="url(#path)">
+      <path id="path-2" data-name="path" d="M16.519,16.645l5.555-5.555A1.464,1.464,0,0,0,20,9.019l-8.055,8.055a1.464,1.464,0,0,0,0,2.071L20,27.2a1.464,1.464,0,0,0,2.071-2.071l-5.555-5.555H32.761a1.465,1.465,0,0,0,0-2.929ZM19.574,4.929a1.464,1.464,0,1,0,0-2.929H5.668A3.665,3.665,0,0,0,2,5.666V30.553a3.666,3.666,0,0,0,3.668,3.666H19.574a1.464,1.464,0,1,0,0-2.929H5.668a.737.737,0,0,1-.739-.737V5.666a.736.736,0,0,1,.739-.737Z" transform="translate(21.9 4)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,65 @@
+.EventMainContainer {
+    width: 330px;
+    height: calc(100vh - 61px - 60px);
+    overflow: auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 16px #ddd;
+}
+
+.EventMainPhoto {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 16px #ddd;
+    height: 130px;
+    margin: 0px 0px 20px 0px;
+}
+
+.EventMainAddFriendButton {
+    position: relative;
+    top: -20px;
+    left: -15px;
+    cursor: pointer;
+}
+
+.EventMainInfo {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 16px #ddd;
+    margin: 0px 0px 0px  0px;
+    padding: 20px 20px 0px 20px;
+    height: calc(100% - 130px - 20px);
+}
+
+.EventMainUserInfo{
+    padding: 0px 20px;
+    font-size: 22px;
+}
+
+.EventMainEventInfo {
+    margin: 20px 0px 0px 0px;
+    padding: 15px 15px 0px 15px;
+}
+
+.EventMainInfoElement{
+    margin: 10px 0px;
+    display: flex;
+    font-size: 16px;
+    overflow: auto;
+}
+
+.EventMainJoinButton {
+    font-size: 14px;
+    margin: 40px 40px 0px 40px;
+    background-color: #55B77F;
+    color: white;
+    border-radius: 15px;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.EventMainIcon {
+    height: 35px;
+    width: 35px;
+    margin: 0px 15px 0px 0px;
+}

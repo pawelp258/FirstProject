@@ -1,0 +1,55 @@
+.dropMenuCitesContainer {
+    text-align: left;
+    cursor: pointer;
+    margin: 0 20px 0 6vw;
+    height: 35px;
+    line-height: 35px;
+    width: 200px;
+    border-radius: 15px;
+    padding: 0 0 0 15px;
+}
+
+.dropMenuCitesContent {
+    position: absolute;
+    text-align: center;    
+    z-index: 1000;
+}
+
+.dropMenuCitesContent ol {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    color: white;
+}
+
+.dropMenuCitesContent ol > li {
+    padding: 5px 0px;
+    background-color: #2C383E;
+    text-align: left;
+    display: block;
+    width: 200px;
+    margin: 0 0 0 0px;
+    padding: 0 0 0 15px;
+    border-bottom: 1px dashed black;
+}
+
+.dropMenuCitesContent ol > li:hover {
+    background-color: grey;
+}
+
+.dropMenuCitesContent ol > li a{
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+.dropMenuCitesContent ol > li:last-child {
+    border-bottom: none;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.dropMenuCitesContent ol > li:first-child {
+    border-radius: 0px 0px 0px 0px;
+}

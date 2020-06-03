@@ -1,0 +1,72 @@
+.ObjectInfoContainer {
+    height: calc(100vh - 61px);
+    position: absolute;
+    right: 0px;
+    background-color: #2C383E;
+    width: 310px;
+    box-sizing: border-box;
+    color: white;
+    overflow-y: auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+
+.ObjectInfoInformations{
+    background-color: #2C383E;
+    margin-top: -15px;
+    border-radius: 15px;
+    font-size: 12px;
+    position: relative;
+    padding: 25px;
+}
+
+.ObjectInfoIconBack{
+    position: absolute;
+    top: 20px;
+    left: 12px;
+    cursor: pointer;
+}
+
+.ObjectInfoInformation{
+    margin: 20px 0px;
+    display: flex;
+}
+
+.ObjectInfoSpan {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.ObjectInfoCreateEventButton {
+    width: 180px;
+    background-color: #55B77F;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.ObjectInfoContainer::-webkit-scrollbar {
+    width: 3px;
+    background-color: #aaa;
+}
+ 
+.ObjectInfoContainer::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 20px 20px;
+}
+
+.ObjectInfoInformationsFrame {
+    text-align: left;
+    background-color: #335365;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.ObjectInfoShowArrow {
+    margin-left: 5px;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}

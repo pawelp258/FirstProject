@@ -1,0 +1,39 @@
+.ObjectFiltersElement {
+    width: 70%;
+    margin: 10px auto;
+    background-color: #353f72;
+    height: 44px;
+    line-height: 44px;
+    border: 1px solid #707070;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    box-sizing: border-box;
+}
+
+.ObjectFiltersElement:hover {
+    background-color: #55b77f;
+    border: 2px solid #707070;
+
+}
+
+.activeObjectFiltersElement {
+    width: 70%;
+    margin: 10px auto;
+    background-color: #55b77f;
+    height: 44px;
+    line-height: 44px;
+    border: 1px solid #707070;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.activeObjectFiltersElement:hover {
+    background-color: #353f72;
+    border: 2px solid #707070   ;
+}

@@ -1,0 +1,47 @@
+.RegisterContainer{
+    background-color: #E2E4E6;
+    margin: 20px;
+    text-align: center;    
+}
+
+.registerFormField{
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.registerFormInput {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px #ddd;
+    height: 50px;
+    padding: 0px 10px;
+    width: 90%;
+    margin: 0px 20px;
+    box-sizing: border-box;
+}
+
+.registerError {
+    font-size: 12px;
+    color: red;
+}
+
+.registerSubmitButton {
+    width: calc(90% - 20px);
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    background-color: #6E81FB;
+    color: white;
+    margin: 20px 0 0 0 
+}
+
+.registerFormDataPicker {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px #ddd;
+    height: 50px;
+    margin: 0 20px 0 10px;
+    padding: 0px 10px;
+    width: calc(100% -  20px);
+    box-sizing: border-box;
+}

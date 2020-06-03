@@ -1,0 +1,4 @@
+.ObjectMapsContainer {
+    background-color: green;
+    width: calc(100vw - 230px);
+}

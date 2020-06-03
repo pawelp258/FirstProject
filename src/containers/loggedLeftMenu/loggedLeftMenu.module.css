@@ -1,0 +1,55 @@
+.LoggedLeftMenu{
+    font-size: 12px;
+    height: 100vh;
+    width: 230px;
+    background-color: #2C383E;
+    padding: 20px 0 0 0;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;  
+    z-index: 500;          
+}
+
+.LoggedLeftMenu > ul {
+    list-style: none;
+    padding: 20px 0 0 0;
+    margin: 0;
+}
+
+.LoggedLeftMenu a {
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.LoggedLeftMenu > ul > li {
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+    color: white;
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.LoggedLeftMenu > ul > li:last-child{
+    position: absolute;
+    bottom: 10px;
+    margin-left: 0px;
+}
+
+.LoggedLeftMenu > ul > li:hover{
+    cursor: pointer;
+    background-color: grey;
+}
+
+.LoggedLeftMenuActiveLink {
+    background-color: #333;
+    border-top: 4px solid #1C1F23;
+    border-bottom: 4px solid #4B5458;
+    color: #69B4D6 !important;
+    box-sizing: border-box;
+    
+}

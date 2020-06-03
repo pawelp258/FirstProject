@@ -1,0 +1,16 @@
+.dropMenuFiltersContainer {
+    text-align: center;
+    width: 50px;
+}
+
+.dropMenuFiltersContent {
+    background-color: #6189f7;
+    position: absolute;
+    text-align: center;
+    right: 0px;    
+    z-index: 1000;
+    height: 90vh;
+    border-right: 2px solid #3775A2;
+
+}
+

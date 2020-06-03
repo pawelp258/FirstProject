@@ -1,0 +1,86 @@
+.createEventFormContainer {
+    position: relative;
+    font-size: 15px;
+}
+
+.createEventFormField {
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.createEventFormLabel {
+    width: 30px;
+    height: 30px;
+}
+
+.createEventFormInput {
+    border: none;
+    width: 80%;
+    margin: 0 10px;
+    border-radius: 15px;
+    height: 38px;
+    padding: 0 20px;
+    line-height: 38px;
+    overflow: hidden;
+    box-shadow: 2px 2px #ddd;
+}
+
+.createEventFormInputTimeLeft {
+    border: none;
+    width: calc(40% - 1px);
+    margin: 0 -2px 0px 10px;
+    border-radius: 15px;
+    height: 38px;
+    padding: 0 20px;
+    line-height: 38px;
+    overflow: hidden;
+    box-shadow: 0px 2px #ddd;
+    border-radius: 15px 0px 0px 15px;
+    border-right: 1px solid #ddd ;
+    font-size: 15px;
+}
+
+.createEventFormInputTimeRight {
+    border: none;
+    width: 40%;
+    margin: 0 10px 0px 0px;
+    border-radius: 0px 15px 15px 0px ;
+    height: 38px;
+    padding: 0 20px;
+    line-height: 38px;
+    overflow: hidden;
+    box-shadow: 2px 2px #ddd;
+}
+
+.createEventFormInput:focus {
+    outline: 0;
+
+}
+
+.createEventFormIcon {
+    width: 30px;
+    height: 30px;
+}
+
+.createEventSubmitButton {
+    width: 180px;
+    background-color: #55B77F;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.createEventError {
+    display: block;
+    color: red;
+    font-size: 12px;
+    height: 12px;
+    width: 100%;
+}
+

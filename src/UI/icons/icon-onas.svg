@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50.47" height="69.096" viewBox="0 0 50.47 69.096">
+  <defs>
+    <filter id="icon_onas" x="1.39" y="0" width="49.081" height="49.081" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.459"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="O_nas" x="0" y="35.096" width="50" height="34" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="onas" transform="translate(-12.606 -173.929)">
+    <g transform="matrix(1, 0, 0, 1, 12.61, 173.93)" filter="url(#icon_onas)">
+      <path id="icon_onas-2" data-name="icon/onas" d="M17.54,33.081a15.54,15.54,0,1,1,15.54-15.54A15.541,15.541,0,0,1,17.54,33.081Zm0-2.826A12.715,12.715,0,1,0,4.826,17.54,12.715,12.715,0,0,0,17.54,30.255Zm0-18.366a1.413,1.413,0,1,1,1.413-1.413A1.413,1.413,0,0,1,17.54,11.889Zm-1.413,3.532a1.413,1.413,0,1,1,2.826,0V24.6a1.413,1.413,0,1,1-2.826,0Z" transform="translate(8.39 4)" fill="#fff"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 12.61, 173.93)" filter="url(#O_nas)">
+      <text id="O_nas-2" data-name="O nas" transform="translate(25 54.1)" fill="#fff" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="-15.161" y="0">O nas</tspan></text>
+    </g>
+  </g>
+</svg>

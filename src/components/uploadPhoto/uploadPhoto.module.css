@@ -1,0 +1,33 @@
+.UploadPhotoContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: grey;
+    padding: 5px 15px;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+
+}
+
+.sendPhotoButton {
+    border-radius: 15px;
+    margin: 0px 0px 0 20px;
+    height: 30px;
+    line-height: 30px;
+    background-color: lightblue;
+    color: white;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.inputPhotoButton {
+
+}
+
+.uploadPhotoProgressBar {
+    width: 70px;
+    margin: 0px 20px 0 0px;
+
+}

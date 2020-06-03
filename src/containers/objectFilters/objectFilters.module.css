@@ -1,0 +1,32 @@
+.objectFiltersContainer {
+    width: 310px;
+    background-color: #2C383E;
+    height: calc(100vh - 61px);
+    position: absolute;
+    text-align: center;
+    right: 0px;    
+    z-index: 800;
+    padding: 20px 0 0 0 ;
+    margin-top: 1px 25px 0 25px;
+    color: white;
+}
+
+.objectFiltersHeader {
+    font-size: 18px;  
+    line-height: 18px; 
+    margin: 0 25px 15px 25px;     
+}
+
+.objectFiltersText {
+    font-size: 11px;
+    line-height: 11px;    
+    margin: 0 25px 50px 25px;
+
+}
+
+.objectFiltersIconBack{
+    position: absolute;
+    top: 20px;
+    left: 12px;
+    cursor: pointer;
+}

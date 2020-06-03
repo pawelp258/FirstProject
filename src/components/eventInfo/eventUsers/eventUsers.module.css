@@ -1,0 +1,79 @@
+.EventUsersContainer {
+    background-color: white;
+    width: 330px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 16px #ddd;
+    box-sizing: border-box;
+    height: calc(100vh - 61px - 60px);
+    overflow: auto;
+}
+
+.EventUsersColumn {
+    box-sizing: border-box;
+    border-radius: 15px;
+    margin: 15px 20px;
+    height: calc(60% - 60px);
+    box-sizing: border-box;
+}
+
+.EventUsersContainer p{
+    font-size: 14px;
+    padding: 0px 5px;
+}
+
+.EventUsersContainer h2{
+    font-size: 22px;
+}
+
+.EventUsersList {
+    height: 100%;
+    border-radius: 15px 0px 0px 15px;
+    margin: 5px 0px;
+    background-color: #ECECEC;  
+    overflow: auto;
+}
+
+.EventUsersList ol {
+    margin: 0;
+    padding: 0px;
+    list-style-type: none;
+    font-size: 20px;
+}
+
+.EventUsersList ol > li{
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    display: flex;
+}
+
+.EventUsersLiPhoto {
+  border-radius: 150px;
+  height: 30px;
+  width: 30px;
+}
+
+.EventUsersLiNick {
+  margin: 0px 10px;
+}
+
+  /* width */
+.EventUsersList::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+.EventUsersList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+.EventUsersList::-webkit-scrollbar-thumb {
+    background: #333;
+  }
+  
+  /* Handle on hover */
+.EventUsersList::-webkit-scrollbar-thumb:hover {
+    background: #1C1F23;
+  }
