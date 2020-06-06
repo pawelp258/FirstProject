@@ -10,6 +10,7 @@ const EventListElement = props => {
 
     const [object, setObject] = useState(null)
 
+
     useEffect(() => {
         let object_id, object_info;
 
@@ -32,7 +33,17 @@ const EventListElement = props => {
                 <NavLink to={'/events/' + props.event.id}>
                     <div
                         className={styles.EventListElementContainer}
-                        style={{ backgroundImage: `url(${object.zdjecie})` }}>
+                        style={
+                            props.my_css ?
+                                {
+                                    ...props.my_css,
+                                    backgroundImage: `url(${object.zdjecie})`
+                                }
+                                :
+                                {
+                                    backgroundImage: `url(${object.zdjecie})`
+                                }
+                        }>
                         <img src={black} alt="black_image" className={styles.EventListElementShadow} />
                         <div className={styles.EventListElementLeftInfo}>
                             <div style={{ fontSize: '20px' }}>{props.event.nazwa}</div>

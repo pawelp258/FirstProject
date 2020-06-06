@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useCallback, useEffect } from 'react'
 import styles from './objectInfo.module.css'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -19,6 +19,7 @@ import 'react-calendar/dist/Calendar.css';
 import '../../../css/objectInfo_calendar.css'
 
 import CreateEvent from '../../../components/createEvent/createEvent'
+import CalendarInfo from './calendarInfo/calendarInfo'
 
 const ObjectInfo = props => {
 
@@ -38,20 +39,27 @@ const ObjectInfo = props => {
     const [showCreateEvent, setShowCreateEvent] = useState(false);
     const [showEventCreated, setShowEventCreated] = useState(false);
 
+    // true - inforamcje o dniu, false - kalendarz
+    const [showInfoCalendar, setShowInfoCalendar] = useState(false);
+
     // akutalnie wybrany obiekt z mapy
     const object = useSelector(state => state.mapRedux.selectedObject)
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        setShowInfoCalendar(false)
+    }, [object])
 
     if (!object)
         return null;
     return (
         <Fragment>
-            {(isLogged && showCreateEvent) ? 
-                <CreateEvent date={currentDay} 
-                close={() => {setShowCreateEvent(false); setShowEventCreated(false)}}
-                finishCreate={() => setShowEventCreated(true)}
-                showEventCreated={showEventCreated} /> 
-            : null}
+            {(isLogged && showCreateEvent) ?
+                <CreateEvent date={currentDay}
+                    close={() => { setShowCreateEvent(false); setShowEventCreated(false) }}
+                    finishCreate={() => setShowEventCreated(true)}
+                    showEventCreated={showEventCreated} />
+                : null}
             <div className={styles.ObjectInfoContainer}>
                 <img src={IconBack} alt="Back Icon" className={styles.ObjectInfoIconBack} onClick={() => dispatch(setSelectedItem(null))} />
                 <div style={{ width: "310px", height: "calc(30vh - 2px)" }}>
@@ -72,11 +80,18 @@ const ObjectInfo = props => {
                             </div>
                         </div>
                         {showCalendar ?
-                            <Calendar
-                                className="objectInfoCalendar"
-                                onChange={date => setCurrentDay(date)}
-                                value={new Date()}
-                            />
+                            (showInfoCalendar ?
+                                <CalendarInfo
+                                    date={currentDay}
+                                    close={() => setShowInfoCalendar(false)}
+                                />
+                                :
+                                <Calendar
+                                    className="objectInfoCalendar"
+                                    onChange={date => { setCurrentDay(date); setShowInfoCalendar(true) }}
+                                    value={currentDay}
+                                />
+                            )
                             : null}
                         <div className={styles.ObjectInfoInformation}>
                             <img src={iconTime} alt="time icon" width="30px" height="30px" />
@@ -85,11 +100,11 @@ const ObjectInfo = props => {
 
                                 {showOpenHours ?
                                     <img src={arrowUp} alt="arrow up icon" className={styles.ObjectInfoShowArrow} onClick={() => setShowOpenHours(false)} /> :
-                                    <img src={arrowDown} alt="arrow down icon"  className={styles.ObjectInfoShowArrow} onClick={() => setShowOpenHours(true)} />
+                                    <img src={arrowDown} alt="arrow down icon" className={styles.ObjectInfoShowArrow} onClick={() => setShowOpenHours(true)} />
                                 }
 
                                 {showOpenHours && object.godziny_otwarcia.map((item, i) => {
-                                    return (<div>{days[i]}: {item}</div>);
+                                    return (<div key={i}>{days[i]}: {item}</div>);
                                 })}
                             </div>
                         </div>

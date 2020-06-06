@@ -8,7 +8,6 @@ export const signIn = credentials => {
             credentials.email,
             credentials.password
         ).then((result) => {
-            console.log('result', result)
             dispatch({
                 type: actions.LOGIN_SUCCESS,
             })
@@ -23,7 +22,6 @@ export const signIn = credentials => {
             else
                 message = 'Nieznany błąd.'
                 
-            console.log(err)
             dispatch({
                 type: actions.LOGIN_ERROR,
                 message

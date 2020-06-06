@@ -5,7 +5,6 @@ import styles from './eventChat.module.css'
 import { GiftedChat } from 'react-web-gifted-chat';
 
 import firebase from '../../../config/fbConfig'
-import firebase2 from 'firebase';
 import axios from 'axios';
 
 import { useSelector } from 'react-redux'
@@ -21,7 +20,7 @@ const EventChat = props => {
         getMessages();
     }, [props.event])
 
-    const getMessages = async () =>{ 
+    const getMessages = async () => {
         if (props.event) {
 
             firebase.firestore().collection("czat_wydarzenia").doc(props.event.chatRef)
@@ -37,7 +36,7 @@ const EventChat = props => {
                         const data = {
                             _id: message.id,
                             text: '',
-                            createdAt: new Date(time).getTime(),                       
+                            createdAt: new Date(time).getTime(),
                             ...firebaseData,
                         };
 
@@ -51,7 +50,7 @@ const EventChat = props => {
                     }))
                     setMessages(new_messages);
                 })
-                
+
         }
     }
 

@@ -1,33 +1,27 @@
-.UploadPhotoContainer{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: grey;
-    padding: 5px 15px;
-    border-radius: 25px;
-    background-color: #FFFFFF;
-
+.UploadPhotoContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: grey;
+  padding: 5px 15px;
+  border-radius: 25px;
+  background-color: #ffffff;
 }
 
 .sendPhotoButton {
-    border-radius: 15px;
-    margin: 0px 0px 0 20px;
-    height: 30px;
-    line-height: 30px;
-    background-color: lightblue;
-    color: white;
-    cursor: pointer;
-    padding: 0 10px;
-}
-
-.inputPhotoButton {
-
+  border-radius: 15px;
+  margin: 0px 0px 0 20px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #69b4d6;
+  color: white;
+  cursor: pointer;
+  padding: 0 10px;
 }
 
 .uploadPhotoProgressBar {
-    width: 70px;
-    margin: 0px 20px 0 0px;
-
+  width: 70px;
+  margin: 0px 20px 0 0px;
 }

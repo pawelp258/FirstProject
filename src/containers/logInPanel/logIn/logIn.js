@@ -28,21 +28,21 @@ class LogIn extends Component {
     forgotPasswordHandler = () => {
         console.log(this.state.email)
         firebase.auth().sendPasswordResetEmail(this.state.email)
-        .then(() => {
-            this.setState({
-                ...this.state,
-                sendPasswordResetError: null,
-                sendPasswordReset: true
+            .then(() => {
+                this.setState({
+                    ...this.state,
+                    sendPasswordResetError: null,
+                    sendPasswordReset: true
+                })
+            }).catch((error) => {
+                console.log(error)
+                this.setState({
+                    ...this.state,
+                    sendPasswordResetError: error.message,
+                    sendPasswordReset: true
+                })
             })
-        }).catch((error) =>{
-            console.log(error)
-            this.setState({
-                ...this.state,
-                sendPasswordResetError: error.message,
-                sendPasswordReset: true
-            })
-        })
-        
+
     }
 
     emailForgotPasswordChange = (e) => {
@@ -57,7 +57,7 @@ class LogIn extends Component {
             email: values.email,
             password: values.password
         });
-      }
+    }
 
     clearLogIn = () => {
         this.setState({
@@ -66,60 +66,59 @@ class LogIn extends Component {
             sendPasswordReset: false,
             sendPasswordResetError: null
         });
-        
+
     }
 
     render() {
 
         const { authError } = this.props;
 
-        return(
+        return (
             <React.Fragment>
                 <div className={styles.loginContainer}>
-                    <Form 
+                    <Form
                         onSubmit={this.onSubmit}
                         validate={values => {
                             const errors = {}
-                            if(!values.email)
+                            if (!values.email)
                                 errors.email = '';
                             if (!values.password) {
                                 errors.password = ''
                             }
                             return errors;
                         }}
-                        render={({ handleSubmit, form, submitting, pristine, values}) => (
+                        render={({ handleSubmit, form, submitting, pristine, values }) => (
                             <form onSubmit={handleSubmit} ref={form => this.loginForm = form}>
                                 <Field name="email">
                                     {({ input, meta }) => (
                                         <div className={styles.loginDivInput}>
-                                            <input 
-                                                {...input} 
+                                            <input
+                                                {...input}
                                                 type="text"
                                                 placeholder="E-mail"
                                                 className={styles.loginInput} />
-                                                {meta.error && meta.touched && <span>{meta.error}</span>}
+                                            {meta.error && meta.touched && <span>{meta.error}</span>}
                                         </div>
                                     )}
                                 </Field>
                                 <Field name="password">
                                     {({ input, meta }) => (
                                         <div className={styles.loginDivInput}>
-                                            <input 
-                                                {...input} 
+                                            <input
+                                                {...input}
                                                 type="password"
                                                 placeholder="Password"
                                                 className={styles.loginInput} />
-                                                {meta.error && meta.touched && <span>{meta.error}</span>}
+                                            {meta.error && meta.touched && <span>{meta.error}</span>}
                                         </div>
                                     )}
                                 </Field>
-                                
-                                <p className={styles.loginForgotPassword}>Zapomniałem hasła</p>
+
 
                                 <button type="submit" disabled={submitting} className={styles.loginSubmitButton}>
                                     Zaloguj się
-                                </button>   
-                                { authError ? <p className={styles.loginError}>{authError}</p> : null}
+                                </button>
+                                {authError ? <p className={styles.loginError}>{authError}</p> : null}
                             </form>
                         )}
                     />
@@ -128,33 +127,39 @@ class LogIn extends Component {
 
                     <div
                         className={styles.loginFacebookButton}
-                        onClick={()=>this.props.signInFacebook()}>
-                        <img src={FacebookIcon} alt="Facebook icon" width="20px" height="20px" style={{marginRight: "10px"}}/>
+                        onClick={() => this.props.signInFacebook()}>
+                        <img src={FacebookIcon} alt="Facebook icon" width="20px" height="20px" style={{ marginRight: "10px" }} />
                         Użyj konta Facebook
                     </div>
 
-
                     <div className={styles.loginForgotPasswordButton}>
-                        <span 
-                            style={{cursor: 'pointer'}}
+                        <span
+                            className={styles.loginForgotPassword}
                             onClick={this.showForgotPasswordHandler}
-                            > Nie pamiętasz hasła ?
-                        </span> 
-                        {   this.state.showForgotPassword ?
-                            <div style={{margin: '10px'}}>
-                                <input type="email" placeholder="E-mail" onChange={(e) => this.emailForgotPasswordChange(e)} /> 
-                                <input type="button" value="Przypomnij hasło" onClick={this.forgotPasswordHandler} />
+                        > Zapomniałem hasła
+                        </span>
+                        {this.state.showForgotPassword ?
+                            <div style={{ margin: '10px' }}>
+                                <input className={styles.loginInput}
+                                    type="email"
+                                    placeholder="E-mail"
+                                    onChange={(e) => this.emailForgotPasswordChange(e)}
+                                    style={{ height: '35px', width: '80%' }} />
+                                <input className={styles.loginSubmitButton}
+                                    type="button" value="Przypomnij hasło"
+                                    onClick={this.forgotPasswordHandler}
+                                    style={{ marginTop: '10px', height: '35px', width: '80%' }} />
                                 {
-                                    this.state.sendPasswordReset ? 
+                                    this.state.sendPasswordReset ?
                                         (!this.state.sendPasswordResetError ?
-                                            <div>{`Email został wysłany.`}</div> : 
-                                            <div>{this.state.sendPasswordResetError}</div>
+                                            <div >{`Email został wysłany.`}</div> :
+                                            <div style={{ color: 'red', marginTop: '10px' }}>{this.state.sendPasswordResetError}</div>
                                         ) : null
                                 }
                             </div>
                             :
                             null
-                        }   
+                        }
                     </div>
                 </div>
             </React.Fragment>
@@ -169,8 +174,8 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const mapStateToProps = (state) =>{
-    return{
+const mapStateToProps = (state) => {
+    return {
         authError: state.auth.authError
     }
 }

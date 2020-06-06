@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux'
 
 import MyEvents from './myEvents/myEvents'
 import AllEvents from './allEvents/allEvents'
+import IconBack from '../../UI/icons/icon-back-black.svg'
+import { Link } from 'react-router-dom'
 
 const Events = () => {
     // akutalny uzytkownik
@@ -18,7 +20,14 @@ const Events = () => {
 
     return (
         <div className={styles.EventsContainer}>
-            { currentUser ?
+            <Link to="/">
+                <img
+                    src={IconBack}
+                    alt="back icon"
+                    className={styles.EvenstBackIcon}
+                />
+            </Link>
+            {currentUser ?
                 <MyEvents />
                 :
                 null

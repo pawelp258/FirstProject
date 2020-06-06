@@ -8,10 +8,8 @@ import styles from './loggedLeftMenu.module.css'
 import Logo from '../../UI/icons/Logo.svg'
 
 import NotificationsImage from '../../UI/icons/leftMenu/icon-powiadomienia.svg'
-import NotificationsImageActive from '../../UI/icons/leftMenu/icon-powiadomienia-active.svg'
 
 import EventsImage from '../../UI/icons/leftMenu/icon-wydarzenia.svg'
-import EventsImageActive from '../../UI/icons/leftMenu/icon-wydarzenia-active.svg'
 
 import ProfileEdit from '../../UI/icons/leftMenu/icon-profileEdit.svg'
 import AboutUsImage from '../../UI/icons/leftMenu/icon-onas.svg'
@@ -29,7 +27,6 @@ const LoggedLeftMenu = props => {
 
     const [showEdit, setShowEdit] = useState(false);
 
-    const [path, setPath] = useState("/")
 
     return (
         <div className={styles.LoggedLeftMenu}>
@@ -38,13 +35,13 @@ const LoggedLeftMenu = props => {
                 close={() => setShowEdit(false)} />
 
             <div >
-                <NavLink to="/"><img onClick={() => setPath("/")} src={Logo} /></NavLink>
+                <NavLink to="/"><img src={Logo} /></NavLink>
             </div>
             <ul>
-                <li onClick={() => { setPath("/adminPanel") }}>
+                <li>
                     <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/adminPanel">
                         <img
-                            src={(window.location.pathname.includes("/adminPanel")) ? NotificationsImageActive : NotificationsImage}
+                            src={NotificationsImage}
                             alt="notification icon" width="60px" height="60px" />
                         Panel Admina
                     </NavLink>
@@ -54,14 +51,21 @@ const LoggedLeftMenu = props => {
                     Powiadomienia
                 </li>
                 <li>
-                    <NavLink onClick={() => setPath("/events")} activeClassName={styles.LoggedLeftMenuActiveLink} to="/events">
+                    <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/events">
                         <img
-                            src={(window.location.pathname.includes("/events")) ? EventsImageActive : EventsImage}
+                            src={EventsImage}
                             alt="events icon" width="60px" height="60px" />
                         Wydarzenia
                     </NavLink>
                 </li>
-
+                <li>
+                    <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/community">
+                        <img
+                            src={EventsImage}
+                            alt="community icon" width="60px" height="60px" />
+                        Społeczność
+                    </NavLink>
+                </li>
                 <li onClick={() => setShowEdit(true)}>
                     <img src={AboutUsImage} alt="edit profile icon" width="60px" height="60px" />
                     Edytuj Profil

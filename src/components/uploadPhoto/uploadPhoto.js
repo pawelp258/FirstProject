@@ -1,4 +1,4 @@
-import React, { useState } from 'react' 
+import React, { useState } from 'react'
 
 import firebase, { storage } from '../../config/fbConfig'
 
@@ -15,9 +15,9 @@ const UploadPhoto = props => {
     //obsługa bledu przy wybieraniu zdjecia jak sie wcisnie anuluj
 
     const upload = () => {
-        const {photo} = props;
+        const { photo } = props;
         const uploadTask = storage.ref(`images/${currentUserId}_photo`).put(photo);
-        uploadTask.on('state_changed', 
+        uploadTask.on('state_changed',
             snapshot => {
                 // progess
                 const uploadProgess = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
@@ -33,27 +33,27 @@ const UploadPhoto = props => {
                         firebase.firestore().collection("uzytkownik").doc(currentUserId).update({
                             zdjecie: fireBaseUrl
                         }).then(console.log("succ update"))
-                        .catch(err => console.log(err))              
+                            .catch(err => console.log(err))
                     })
             }
         )
     }
 
     let displayName;
-    if(props.photo.name.length < 10)
+    if (props.photo.name.length < 10)
         displayName = props.photo.name;
     else
-        displayName = props.photo.name.substr(0, 4)+"..."+props.photo.name.substr(-6);
+        displayName = props.photo.name.substr(0, 4) + "..." + props.photo.name.substr(-6);
 
     return (
         <div className={styles.UploadPhotoContainer}>
             <progress max="100" value={progressUpload} className={styles.uploadPhotoProgressBar}></progress>
             {displayName}
-            <div 
+            <div
                 className={styles.sendPhotoButton}
-                onClick={()=>upload()}
-                > 
-                Wyślij zdjęcie
+                onClick={() => upload()}
+            >
+                Wyślij
             </div>
         </div>
     )

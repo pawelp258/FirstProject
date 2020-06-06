@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react'
 
 import { Form, Field } from 'react-final-form'
+import firebase from '../../../config/fbConfig'
+
+import { connect } from 'react-redux'
 
 import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
@@ -40,6 +43,72 @@ class CreateEventForm extends Component {
         })
     }
 
+    validDate = async (startTime, endTime, choosenDate) => {
+        const dateAsArray = choosenDate.split('/')
+        const date = new Date(dateAsArray[2], dateAsArray[1] - 1, dateAsArray[0])
+
+        const objectRef = firebase.firestore().collection('obiekt').doc(this.props.object.id)
+
+        let startDay = new Date(date);
+        let endDay = new Date(date);
+
+        const startEventDate = date.setHours(
+            startTime._d.getHours(),
+            startTime._d.getMinutes()
+        );
+
+        const endEventDate = date.setHours(
+            endTime._d.getHours(),
+            endTime._d.getMinutes()
+        );
+
+        startDay.setHours(0, 0, 0, 0);
+        endDay.setHours(23, 59, 59, 999);
+
+        console.log(new Date(startEventDate), new Date(endEventDate))
+
+        let datesArray = [];
+
+        const valid = await firebase.firestore().collection("wydarzenie")
+            .where('obiekt', '==', objectRef)
+            .where('data_rozpoczecia', '>=', startDay)
+            .where('data_rozpoczecia', '<=', endDay)
+            .get()
+            .then(resp => {
+                let validation = true;
+                resp.docs.map(el => {
+                    datesArray.push({
+                        ...el.data(),
+                        id: el.id
+                    })
+                })
+                console.log(datesArray)
+                datesArray.map(event => {
+                    if (!validation) return;
+                    let validation1 = false;
+                    let validation2 = false;
+
+                    // nowe wydarzenie przed sprawdzanym
+                    if ((startEventDate <= event.data_rozpoczecia) && (endEventDate <= event.data_rozpoczecia)) {
+                        validation1 = true;
+                    }
+                    // nowe wydarzenie po sprawdzanym
+                    if ((startEventDate >= event.data_zakonczenia) && (endEventDate >= event.data_zakonczenia))
+                        validation2 = true;
+
+                    console.log("validation2", validation2)
+                    console.log("validation1", validation1)
+                    console.log(!validation1 && !validation2)
+                    if (!validation1 && !validation2)
+                        validation = false;
+                })
+                return validation
+            })
+        console.log(valid)
+        return valid;
+
+    }
+
     onSubmit = values => {
         let new_startTime;
         if (!this.state.startTime)
@@ -53,8 +122,12 @@ class CreateEventForm extends Component {
         else
             new_endTime = this.state.endTime;
 
-        if(!values.phone)
+        if (!values.phone)
             values.phone = null;
+
+        console.log(this.validDate(new_startTime, new_endTime, values.dateEvent));
+
+        return;
 
         const event = {
             nameEvent: values.nameEvent,
@@ -231,4 +304,10 @@ class CreateEventForm extends Component {
     }
 }
 
-export default CreateEventForm
+const mapStateToProps = state => {
+    return ({
+        object: state.mapRedux.selectedObject
+    })
+}
+
+export default connect(mapStateToProps)(CreateEventForm)

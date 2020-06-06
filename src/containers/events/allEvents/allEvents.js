@@ -6,6 +6,7 @@ import styles from '../events.module.css'
 import firebase from '../../../config/fbConfig'
 
 import EventListElement from '../eventListElement/eventListElement'
+import BeatLoader from "react-spinners/BeatLoader";
 
 const AllEvents = props => {
 
@@ -14,6 +15,7 @@ const AllEvents = props => {
   const [allEvents, setAllEvents] = useState([]);
   const [limit, setLimit] = useState(9)
   const [showMore, setShowMore] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   // filtry
   const filters = useSelector(state => state.mapRedux.filters)
@@ -29,6 +31,8 @@ const AllEvents = props => {
 
   const getAllEvents = React.useCallback(
     async (start) => {
+      setLoading(true)
+
       let myEventsArray = [];
       await firebase
         .firestore()
@@ -51,6 +55,8 @@ const AllEvents = props => {
             myEventsArray.push(el);
           });
         });
+      setLoading(false)
+
       setAllEvents((allEvents) =>
         //use callback to prevent allEvents being a dependency
         allEvents.concat(myEventsArray)
@@ -63,11 +69,19 @@ const AllEvents = props => {
 
   useEffect(() => {
     setAllEvents([]);
-    getAllEvents(new Date(2019));
+    getAllEvents(new Date());
     //effect will run when filters change or when
     //  getAllEvents change, getAllEvents will change
     //  when filters, currentCity or limit changes
   }, [filters, getAllEvents]);
+
+
+  const loader_css = `
+  position: relative;
+  top: calc(50% - 15px);
+  text-align: center;
+  `;
+
   return (
     <div className={styles.AllEvents}>
       <p><b>Wszystkie wydarzenia</b></p>
@@ -82,6 +96,12 @@ const AllEvents = props => {
           })}
         </div>
       }
+      <BeatLoader
+        css={loader_css}
+        size={30}
+        color={"#69B4D6"}
+        loading={loading}
+      />
       {showMore &&
         <div className={styles.showMoreButton} onClick={() => getAllEvents(allEvents[allEvents.length - 1].data_rozpoczecia)}>
           Pokaż więcej

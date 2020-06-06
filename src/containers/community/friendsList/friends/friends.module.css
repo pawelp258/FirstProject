@@ -1,0 +1,40 @@
+.FriendsContainer {
+  background-color: #ececec;
+  height: 100%;
+  height: calc(100vh - 61px - 60px - 40px - 30px);
+  border-radius: 0 0 15px 15px;
+  text-align: center;
+}
+
+.FriendsContainer ol {
+  margin: 0;
+  padding: 0px;
+  list-style-type: none;
+  font-size: 20px;
+}
+
+.FriendsContainer ol > li {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  display: flex;
+  position: relative;
+}
+
+.FriendsLiPhoto {
+  border-radius: 150px;
+  height: 30px;
+  width: 30px;
+}
+
+.FriendsLIIcon {
+  margin: 0 5p;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+}
+
+.FriendsLiNick {
+  margin: 0px 10px;
+}

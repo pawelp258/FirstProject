@@ -39,83 +39,86 @@ const EditUser = props => {
     const closeEditUser = close => {
         setImageAsFile('');
         setContent('main')
-        setShowBackIcon(false) 
+        setShowBackIcon(false)
         setShowUploadPhoto(false);
         close();
     }
 
     const chaningStage = (stage) => {
-        if(stage === 'main')
-            setShowBackIcon(false) 
+        if (stage === 'main')
+            setShowBackIcon(false)
         else
-            setShowBackIcon(true) 
+            setShowBackIcon(true)
 
         setContent(stage)
     }
 
     const switchContet = () => {
-        switch(content) {
+        switch (content) {
             case 'email':
-                return <ChangeEmail currentUser={currentUser} changeStage={(stage, showBackArrow) => chaningStage(stage)}/>;
+                return <ChangeEmail currentUser={currentUser} changeStage={(stage, showBackArrow) => chaningStage(stage)} />;
             case 'name':
-                return <ChangeName currentUser={currentUser} changeStage={(stage, showBackArrow) => chaningStage(stage)}/>;
+                return <ChangeName currentUser={currentUser} changeStage={(stage, showBackArrow) => chaningStage(stage)} />;
             case 'birthDay':
-                return <ChangeBirthDate currentUser={currentUser} changeStage={(stage, showBackArrow) => chaningStage(stage)}/>;
+                return <ChangeBirthDate currentUser={currentUser} changeStage={(stage, showBackArrow) => chaningStage(stage)} />;
             case 'password':
-                return <ChangePassword currentUser={currentUser} changeStage={(stage, showBackArrow) => chaningStage(stage)}/>;
+                return <ChangePassword currentUser={currentUser} changeStage={(stage, showBackArrow) => chaningStage(stage)} />;
             default:
-                return <MainContent currentUser={currentUser} changeStage={(stage, showBackArrow) => chaningStage(stage)}/>;
+                return <MainContent currentUser={currentUser} changeStage={(stage, showBackArrow) => chaningStage(stage)} />;
 
         }
     }
 
     let photo;
-    if(currentUser.zdjecie)
+    if (currentUser.zdjecie)
         photo = currentUser.zdjecie;
     else
         photo = 'https://paga.org.pl/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
-    return(
+    return (
         <Fragment>
-            <Backdrop show={props.show} close={()=>closeEditUser(props.close)} />
-            <div 
+            <Backdrop show={props.show} close={() => closeEditUser(props.close)} />
+            <div
                 className={styles.EditUserContainer}
                 style={{
                     transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
-                    opacity: props.show ? '1' : '0' }}>
-                { showBackIcon && 
-                <img 
-                    alt="back icon"
-                    src={BackIcon} 
-                    className={styles.EditUserBackIcon}
-                    onClick={()=>chaningStage('main')}/>
-                }  
-                <img 
-                    src={Exit} 
+                    opacity: props.show ? '1' : '0'
+                }}>
+                {showBackIcon &&
+                    <img
+                        alt="back icon"
+                        src={BackIcon}
+                        className={styles.EditUserBackIcon}
+                        onClick={() => chaningStage('main')} />
+                }
+                <img
+                    src={Exit}
                     alt="exit icon"
                     className={styles.EditUserExitIcon}
-                    onClick={()=>closeEditUser(props.close)}/>
+                    onClick={() => closeEditUser(props.close)} />
                 <div>
-                    <img src={photo} alt="user_photo_icon" width="140px" height="140px" className={styles.EditUserPhoto} />
-                    <img 
-                        src={Pencil}
-                        alt="edit icon"
-                        width="35px" 
-                        height="35px" 
-                        className={styles.EditUserPencil} 
-                        onClick={() => upload()}
+                    <div style={{ position: "relative" }}>
+                        <img src={photo} alt="user_photo_icon" width="140px" height="140px" className={styles.EditUserPhoto} />
+                        <img
+                            src={Pencil}
+                            alt="edit icon"
+                            width="35px"
+                            height="35px"
+                            className={styles.EditUserPencil}
+                            onClick={() => upload()}
                         />
-                    <input 
-                        type="file" 
-                        style={{display: "none"}}
+                    </div>
+                    <input
+                        type="file"
+                        style={{ display: "none" }}
                         id="uploadFile"
                         onChange={(event) => fileSelectHandler(event)}
-                        />
-                    <p>{currentUser.nick ? currentUser.nick : "Tutaj jest nick"}</p>
-                    { showUploadPhoto ? 
-                        <UploadPhoto photo={imageAsFile}/> 
-                    :
+                    />
+                    <h3><b>{currentUser.nick ? currentUser.nick : "Tutaj jest nick"}</b></h3>
+                    {showUploadPhoto ?
+                        <UploadPhoto photo={imageAsFile} />
+                        :
                         null
-                    }     
+                    }
                 </div>
 
                 <div className={styles.EditUserContent}>
@@ -123,13 +126,13 @@ const EditUser = props => {
                 </div>
 
             </div>
-        </Fragment>
+        </Fragment >
     )
 }
 
 export default EditUser;
 
-/* 
+/*
 
         const uploadTask = storage.ref(`/images/${imageAsFile.name}`).put(imageAsFile);
 */

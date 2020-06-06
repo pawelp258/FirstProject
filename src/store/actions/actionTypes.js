@@ -22,3 +22,6 @@ export const SET_FILTERS = 'SET_FILTERS';
 
 export const SET_CITY = 'SET_CITY';
 
+//select friend
+
+export const SELECTED_FRIEND_SUCCESS = "SELECTED_FRIEND_SUCCESS";

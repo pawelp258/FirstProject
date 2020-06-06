@@ -1,0 +1,39 @@
+.CalendarInfoContainer {
+  width: 100%;
+  height: 235px;
+  color: black;
+  background-color: white;
+  border: none;
+  position: block;
+  border-radius: 5px;
+}
+
+.CalendarInfoHeader {
+  position: relative;
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  border-bottom: 1px solid grey;
+  height: 30px;
+}
+
+.CalendarInfoBackArrow {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.CalendarInfoHours {
+  height: calc(100% - 30px);
+  overflow: auto;
+}
+
+.CalendarInfoHour {
+  width: calc(100% - 20px);
+  margin: 5px 10px;
+  padding: 0px 10px;
+  font-size: 14px;
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
+}

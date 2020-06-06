@@ -8,6 +8,7 @@ import LoggedLeftMenu from './containers/loggedLeftMenu/loggedLeftMenu'
 import UnLoggedLeftMenu from './containers/unLoggedLeftMenu/unLoggedLeftMenu'
 import Events from './containers/events/events'
 import Objects from './containers/objects/objects'
+import Community from './containers/community/community'
 import AdminPanel from './containers/adminPanel/adminPanel'
 import { Switch, Route } from 'react-router-dom'
 import ModalContainer from 'react-modal-promise'
@@ -36,6 +37,7 @@ function App(props) {
             </Route>
             <ProtectedRoute path="/events/:id" component={EventInfo} />
             <Route path="/events" component={Events} />
+            <ProtectedRoute path="/community" component={Community} />
             <ProtectedRoute path="/adminPanel" component={AdminPanel} />
           </Switch>
         </main>
