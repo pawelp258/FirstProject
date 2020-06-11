@@ -34,7 +34,7 @@ const CreateEventConfirm = props => {
             props.values.endTime._d.getHours(),
             props.values.endTime._d.getMinutes()
         );
-        return;
+
         let id = db.collection('uzytkownik').doc(user_id);
         let objectRef = db.collection('obiekt').doc(object.id)
 

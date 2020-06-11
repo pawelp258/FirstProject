@@ -1,0 +1,21 @@
+.PoliticsContainer {
+  height: calc(100vh - 61px);
+  padding: 15px 120px;
+  position: relative;
+  overflow: auto;
+}
+
+.PoliticsContainer p {
+  text-align: left;
+}
+
+.PoliticsContainerContent {
+  margin: 20px 0 0 0;
+}
+
+.PoliticsBackIcon {
+  position: absolute;
+  top: 11px;
+  left: 10px;
+  cursor: pointer;
+}

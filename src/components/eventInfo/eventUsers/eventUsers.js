@@ -9,6 +9,7 @@ import firebase from '../../../config/fbConfig'
 const EventUsers = props => {
 
     const [members, setMembers] = useState([])
+    const [error, setError] = useState(null)
 
     const uid = useSelector(state => state.firebase.auth.uid)
     const currentUser = useSelector(state => state.firebase.profile)
@@ -48,9 +49,11 @@ const EventUsers = props => {
         const arrayUnion = firebase.firestore.FieldValue.arrayUnion;
 
         const userRef = firebase.firestore().collection('uzytkownik').doc(uid);
-        firebase.firestore().collection('uzytkownik').doc(member)
+        firebase.firestore().collection('uzytkownik').doc(member.id)
             .update({
                 zaproszenia: arrayUnion(userRef)
+            }).then(resp => {
+                setError(`Zaproszenie do ${member.nick} wysłane.`)
             })
     }
 
@@ -69,23 +72,27 @@ const EventUsers = props => {
                 <div className={styles.EventUsersList}>
                     <ol>
                         {members && members.map(member => {
-                            if (true)
-                                return (
-                                    <li key={member.id}>
-                                        <img className={styles.EventUsersLiPhoto} src={member.zdjecie} alt="member photo" />
-                                        <span className={styles.EventUsersLiNick}>{member.nick}</span>
-                                        {
-                                            isFriend(member.id) && (
-                                                <div onClick={() => sendInv(member.id)} className={styles.EventUserAddFriendIcon}>
-                                                    <i class="fas fa-user-plus"></i>
-                                                </div>)
-                                        }
-                                    </li>
-                                )
+                            return (
+                                <li key={member.id}>
+                                    <img className={styles.EventUsersLiPhoto} src={member.zdjecie} alt="member photo" />
+                                    <span className={styles.EventUsersLiNick}>{member.nick}</span>
+                                    {
+                                        isFriend(member.id) && (
+                                            <div onClick={() => sendInv(member)} className={styles.EventUserAddFriendIcon}>
+                                                <i className="fas fa-user-plus"></i>
+                                            </div>)
+                                    }
+                                </li>
+                            )
                         }
                         )}
                     </ol>
                 </div>
+                {error && <div style={{
+                    fontSize: "12px",
+                    padding: "0 10px",
+                    color: "green"
+                }}>{error}</div>}
             </div>
         </div>
     )

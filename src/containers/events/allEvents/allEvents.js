@@ -32,29 +32,30 @@ const AllEvents = props => {
   const getAllEvents = React.useCallback(
     async (start) => {
       setLoading(true)
-
+      const my_filters = createFiltersTable();
       let myEventsArray = [];
-      await firebase
-        .firestore()
-        .collection('wydarzenie')
-        .where('sport', 'in', createFiltersTable())
-        .where('miasto', '==', currentCity)
-        .orderBy('data_rozpoczecia')
-        .startAfter(start)
-        .limit(limit)
-        .get()
-        .then((snapshot) => {
-          if (snapshot.size < limit) setShowMore(false);
-          else setShowMore(true)
-          snapshot.forEach((doc) => {
-            let info = doc.data();
-            let el = {
-              id: doc.id,
-              ...info,
-            };
-            myEventsArray.push(el);
+      if (my_filters.length != 0)
+        await firebase
+          .firestore()
+          .collection('wydarzenie')
+          .where('sport', 'in', my_filters)
+          .where('miasto', '==', currentCity)
+          .orderBy('data_rozpoczecia')
+          .startAfter(start)
+          .limit(limit)
+          .get()
+          .then((snapshot) => {
+            if (snapshot.size < limit) setShowMore(false);
+            else setShowMore(true)
+            snapshot.forEach((doc) => {
+              let info = doc.data();
+              let el = {
+                id: doc.id,
+                ...info,
+              };
+              myEventsArray.push(el);
+            });
           });
-        });
       setLoading(false)
 
       setAllEvents((allEvents) =>

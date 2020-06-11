@@ -15,14 +15,14 @@ const NavBar = props => {
     const uid = useSelector(state => state.firebase.auth.uid)
 
     const showPhoto = props => {
-        if(!uid) return null;
+        if (!uid) return null;
         let photo;
         if (currentUser.zdjecie)
             photo = currentUser.zdjecie;
         else
-            photo = 'https://paga.org.pl/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'  
-        
-        return(
+            photo = 'https://paga.org.pl/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+
+        return (
             <div className={styles.NavBarUserPhotoContainer}>
                 <img src={photo} alt="user_photo icon" width="100%" height="100%" className={styles.NavBarAvatar} />
                 <ol>
@@ -39,7 +39,7 @@ const NavBar = props => {
             <div className={styles.leftNavBar}>
                 <DropMenuCites />
                 <DropMenuFilters />
-                <img src={Info} alt="info_image" width="50px" height="50px" />
+                <img src={Info} alt="info_image" width="38px" height="38px" />
             </div>
         </div>
     )

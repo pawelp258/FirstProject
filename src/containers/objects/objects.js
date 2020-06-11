@@ -12,7 +12,7 @@ class Objects extends Component {
             <div className={styles.Objects}>
                 <ObjectsMap 
                     setSelectedItem={(item) => this.setSelectedItem(item) }
-                    googleMapURL={'API'}  
+                    googleMapURL={APIKEY}  
                     loadingElement={<div style={{ height: `calc(100vh - 61px)` }} />}
                     containerElement={<div style={{ height: `calc(100vh - 61px)` }} />}
                     mapElement={<div style={{ height: `calc(100vh - 61px)` }} />}

@@ -17,6 +17,7 @@ import ProtectedRoute from './hoc/protectedRoute'
 
 import BlockedScreen from './components/blockedScreen/blockedScreen'
 import EventInfo from './components/eventInfo/eventInfo'
+import Politics from './components/politics/politics';
 
 function App(props) {
 
@@ -38,7 +39,16 @@ function App(props) {
             <ProtectedRoute path="/events/:id" component={EventInfo} />
             <Route path="/events" component={Events} />
             <ProtectedRoute path="/community" component={Community} />
-            <ProtectedRoute path="/adminPanel" component={AdminPanel} />
+            <Route path="/politics" component={Politics} />
+            {props.user.czyAdmin && <ProtectedRoute path="/adminPanel" component={AdminPanel} />}
+            <Route path="/">
+              <div style={{
+                fontSize: "52px",
+                margin: 'auto auto',
+                height: "calc(100vh - 61px)",
+                lineHeight: "calc(100vh - 61px)"
+              }}>Nie znaleziono strony.</div>
+            </Route>
           </Switch>
         </main>
       </Fragment>

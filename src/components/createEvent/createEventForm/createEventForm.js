@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import moment from 'moment'
 
 import { Form, Field } from 'react-final-form'
 import firebase from '../../../config/fbConfig'
@@ -22,7 +23,8 @@ class CreateEventForm extends Component {
 
     state = {
         startTime: null,
-        endTime: null
+        endTime: null,
+        dateError: null
     }
 
     setStartTime = time => {
@@ -44,6 +46,7 @@ class CreateEventForm extends Component {
     }
 
     validDate = async (startTime, endTime, choosenDate) => {
+        let validation = true;
         const dateAsArray = choosenDate.split('/')
         const date = new Date(dateAsArray[2], dateAsArray[1] - 1, dateAsArray[0])
 
@@ -51,65 +54,68 @@ class CreateEventForm extends Component {
 
         let startDay = new Date(date);
         let endDay = new Date(date);
-
-        const startEventDate = date.setHours(
-            startTime._d.getHours(),
-            startTime._d.getMinutes()
-        );
-
-        const endEventDate = date.setHours(
-            endTime._d.getHours(),
-            endTime._d.getMinutes()
-        );
-
         startDay.setHours(0, 0, 0, 0);
         endDay.setHours(23, 59, 59, 999);
 
-        console.log(new Date(startEventDate), new Date(endEventDate))
+        const startEventDate = new Date(
+            moment(
+                moment(date).format('DD-MMMM-YYYY') +
+                moment(startTime).format('HH:mm'),
+                'DD-MMMM-YYYYLT',
+            )
+                .format()
+                .toString(),
+        );
+
+        const endEventDate = new Date(
+            moment(
+                moment(date).format('DD-MMMM-YYYY') +
+                moment(endTime).format('HH:mm'),
+                'DD-MMMM-YYYYLT',
+            )
+                .format()
+                .toString(),
+        );
+
+
 
         let datesArray = [];
 
-        const valid = await firebase.firestore().collection("wydarzenie")
+        await firebase.firestore().collection("wydarzenie")
             .where('obiekt', '==', objectRef)
             .where('data_rozpoczecia', '>=', startDay)
             .where('data_rozpoczecia', '<=', endDay)
             .get()
             .then(resp => {
-                let validation = true;
                 resp.docs.map(el => {
                     datesArray.push({
                         ...el.data(),
                         id: el.id
                     })
                 })
-                console.log(datesArray)
-                datesArray.map(event => {
-                    if (!validation) return;
-                    let validation1 = false;
-                    let validation2 = false;
-
-                    // nowe wydarzenie przed sprawdzanym
-                    if ((startEventDate <= event.data_rozpoczecia) && (endEventDate <= event.data_rozpoczecia)) {
-                        validation1 = true;
-                    }
-                    // nowe wydarzenie po sprawdzanym
-                    if ((startEventDate >= event.data_zakonczenia) && (endEventDate >= event.data_zakonczenia))
-                        validation2 = true;
-
-                    console.log("validation2", validation2)
-                    console.log("validation1", validation1)
-                    console.log(!validation1 && !validation2)
-                    if (!validation1 && !validation2)
+                datesArray.forEach(e => {
+                    if (
+                        (moment(startEventDate).valueOf() >
+                            moment(e.data_rozpoczecia.seconds * 1000).valueOf() &&
+                            moment(startEventDate).valueOf() <
+                            moment(e.data_zakonczenia.seconds * 1000).valueOf()) ||
+                        (moment(endEventDate).valueOf() >
+                            moment(e.data_rozpoczecia.seconds * 1000).valueOf() &&
+                            moment(endEventDate).valueOf() <
+                            moment(e.data_zakonczenia.seconds * 1000).valueOf()) ||
+                        (moment(startEventDate).valueOf() <
+                            moment(e.data_rozpoczecia.seconds * 1000).valueOf() &&
+                            moment(endEventDate).valueOf() >
+                            moment(e.data_zakonczenia.seconds * 1000).valueOf()) ||
+                        moment(startEventDate) > moment(endEventDate)
+                    )
                         validation = false;
                 })
-                return validation
             })
-        console.log(valid)
-        return valid;
-
+        return validation;
     }
 
-    onSubmit = values => {
+    onSubmit = async values => {
         let new_startTime;
         if (!this.state.startTime)
             new_startTime = this.props.data.startTime;
@@ -125,9 +131,18 @@ class CreateEventForm extends Component {
         if (!values.phone)
             values.phone = null;
 
-        console.log(this.validDate(new_startTime, new_endTime, values.dateEvent));
+        if (!await this.validDate(new_startTime, new_endTime, values.dateEvent)) {
+            this.setState({
+                ...this.state,
+                dateError: "Obiekt jest zajęty w tych godzinach."
+            })
+            return;
+        }
 
-        return;
+        this.setState({
+            ...this.state,
+            dateError: null
+        })
 
         const event = {
             nameEvent: values.nameEvent,
@@ -275,6 +290,7 @@ class CreateEventForm extends Component {
                                     allowEmpty={false}
                                     onChange={(value) => this.setEndTime(value)} />
                             </div>
+                            {this.state.dateError && <div className={styles.createEventError}>{this.state.dateError}</div>}
                             <Field name="describeEvent" >
                                 {({ input, meta }) => (
                                     <div className={styles.createEventFormField}>

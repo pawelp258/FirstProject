@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import styles from './adminPanel.module.css'
+import { Route, Redirect } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 
@@ -9,7 +10,6 @@ import { connect } from 'react-redux'
 
 class AdminPanel extends Component {
     render() {
-
         return (
             <div className={styles.AdminPanelContainer}>
                 admin panel

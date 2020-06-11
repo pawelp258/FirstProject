@@ -19,11 +19,14 @@ import { ReactReduxFirebaseProvider, isLoaded } from 'react-redux-firebase'
 import { BrowserRouter } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
+import DotLoader from "react-spinners/DotLoader";
+
+
 const store = createStore(
         rootReducer,
         compose(
-                applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
-                reduxFirestore(firebase, firebaseConfig)       
+                applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+                reduxFirestore(firebase, firebaseConfig)
         )
 )
 
@@ -39,13 +42,30 @@ const rrfProps = {
         config: profileSpecificProps,
         dispatch: store.dispatch,
         createFirestoreInstance
-    }
-
+}
 const AuthIsLoaded = ({ children }) => {
         const auth = useSelector(state => state.firebase)
-        if (!isLoaded(auth.auth)) return <div>splash screen...</div>;
+        if (!isLoaded(auth.auth)) {
+                return (
+                        <div style={{
+                                backgroundColor: "#2C383E",
+                                height: "100vh",
+                                width: "100vw",
+                                margin: '-61px 0 0 -230px',
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center"
+                        }}>
+                                <DotLoader
+                                        size={60}
+                                        color={"#69B4D6"}
+                                        loading='true'
+                                />
+                        </div>
+                );
+        }
         return children
-      }
+}
 
 
 

@@ -25,14 +25,15 @@ const CalendarInfo = (props) => {
         startDay.setHours(0, 0, 0, 0);
         endDay.setHours(23, 59, 59, 999);
 
-        let datesArray = [];
+
 
         firebase.firestore().collection("wydarzenie")
             .where('obiekt', '==', objectRef)
             .where('data_rozpoczecia', '>=', startDay)
             .where('data_rozpoczecia', '<=', endDay)
             .orderBy('data_rozpoczecia')
-            .get().then(resp => {
+            .onSnapshot(resp => {
+                let datesArray = [];
                 resp.docs.map(el => {
                     datesArray.push({
                         ...el.data(),
@@ -42,7 +43,6 @@ const CalendarInfo = (props) => {
                 setLoading(false)
                 setArray(datesArray)
                 console.log(datesArray)
-
             })
     }, [])
 
