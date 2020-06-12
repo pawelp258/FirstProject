@@ -18,6 +18,7 @@ import ProtectedRoute from './hoc/protectedRoute'
 import BlockedScreen from './components/blockedScreen/blockedScreen'
 import EventInfo from './components/eventInfo/eventInfo'
 import Politics from './components/politics/politics';
+import AboutUs from './components/politics/aboutUs';
 
 function App(props) {
 
@@ -40,6 +41,7 @@ function App(props) {
             <Route path="/events" component={Events} />
             <ProtectedRoute path="/community" component={Community} />
             <Route path="/politics" component={Politics} />
+            <Route path="/aboutUs" component={AboutUs} />
             {props.user.czyAdmin && <ProtectedRoute path="/adminPanel" component={AdminPanel} />}
             <Route path="/">
               <div style={{

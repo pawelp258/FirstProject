@@ -21,35 +21,35 @@ const EventMain = props => {
     const [isUserMember, setIsUserMember] = useState(false);
 
 
-    useEffect( () => {
+    useEffect(() => {
         getIsUserMember();
         getOwner();
     }, [props.event])
 
     const getIsUserMember = () => {
-        if(props.event){
+        if (props.event) {
             const userRef = firebase.firestore().collection('uzytkownik').doc(currentUser);
             let isAny = false;
             props.event.uczestnicy.map(el => {
-                if(el.isEqual(userRef))
+                if (el.isEqual(userRef))
                     isAny = true;
             })
-            
-            if(isAny)
+
+            if (isAny)
                 setIsUserMember(true)
             else
                 setIsUserMember(false)
         }
     }
 
-    const getOwner =  () => {
+    const getOwner = () => {
         props.event && props.event.master.get().then(doc => {
             let new_owner;
             let content = doc.data();
             new_owner = {
                 ...content,
-                id: doc.id 
-           }
+                id: doc.id
+            }
             setOwner(new_owner)
         })
     }
@@ -76,18 +76,18 @@ const EventMain = props => {
     }
 
     const joinEvent = () => {
-        if(!isUserMember) {
+        if (!isUserMember) {
             const arrayUnion = firebase.firestore.FieldValue.arrayUnion;
             firebase.firestore().collection('wydarzenie').doc(props.event.id)
-            .update({
-                uczestnicy: arrayUnion(firebase.firestore().collection('uzytkownik').doc(currentUser))
-            })
+                .update({
+                    uczestnicy: arrayUnion(firebase.firestore().collection('uzytkownik').doc(currentUser))
+                })
         } else {
             const arrayRemove = firebase.firestore.FieldValue.arrayRemove;
             firebase.firestore().collection('wydarzenie').doc(props.event.id)
-            .update({
-                uczestnicy: arrayRemove(firebase.firestore().collection('uzytkownik').doc(currentUser))
-            })
+                .update({
+                    uczestnicy: arrayRemove(firebase.firestore().collection('uzytkownik').doc(currentUser))
+                })
         }
     }
 
@@ -97,26 +97,31 @@ const EventMain = props => {
     }
 
     const renderButton = () => {
-        if(isUserMember){
-            if(owner.id === currentUser){ return(
-                <div className={styles.EventMainJoinButton} style={{backgroundColor:"red"}} onClick={() => deleteEvent()}>
-                    USUŃ WYDARZENIE
-                </div>
-            )} else { return (
-                <div className={styles.EventMainJoinButton} onClick={() => joinEvent()}>
-                    OPUŚĆ WYDARZENIE
-                </div>
-            )}
-        } else {
-            if(props.event){
-                if(props.event.uczestnicy.length === props.event.limit_miejsc) {
-                    console.limit_miejsc(props.event.uczestnicy.length, props.event.limit_miejsc)
-                    return null;
-                } else { return (
-                    <div className={styles.EventMainJoinButton} onClick={() => joinEvent()}>
-                        DOŁĄCZ DO WYDARZENIA
+        if (isUserMember) {
+            if (owner.id === currentUser) {
+                return (
+                    <div className={styles.EventMainJoinButton} style={{ backgroundColor: "red" }} onClick={() => deleteEvent()}>
+                        USUŃ WYDARZENIE
                     </div>
-                )}
+                )
+            } else {
+                return (
+                    <div className={styles.EventMainJoinButton} onClick={() => joinEvent()}>
+                        OPUŚĆ WYDARZENIE
+                    </div>
+                )
+            }
+        } else {
+            if (props.event) {
+                if (props.event.uczestnicy.length === props.event.limit_miejsc) {
+                    return null;
+                } else {
+                    return (
+                        <div className={styles.EventMainJoinButton} onClick={() => joinEvent()}>
+                            DOŁĄCZ DO WYDARZENIA
+                        </div>
+                    )
+                }
             }
         }
     }
@@ -128,7 +133,7 @@ const EventMain = props => {
             </div>
             <div className={styles.EventMainInfo}>
                 <div className={styles.EventMainUserInfo}>
-                    <div style={{display:"flex", alignItems:"center"}}>
+                    <div style={{ display: "flex", alignItems: "center" }}>
                         <img
                             src={owner && owner.zdjecie}
                             alt="user photo" height="60px" width="60px"

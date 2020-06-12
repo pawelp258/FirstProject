@@ -48,7 +48,7 @@ const LoggedLeftMenu = props => {
                         <img
                             src={CommunityImage}
                             alt="community icon" width="60px" height="60px" />
-                        Społeczność
+                            Społeczność
                     </NavLink>
                 </li>
                 <li>
@@ -60,8 +60,10 @@ const LoggedLeftMenu = props => {
                     </NavLink>
                 </li>
                 <li>
-                    <img src={AboutUsImage} alt="about us icon" width="60px" height="60px" />
+                    <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/aboutUs">
+                        <img src={AboutUsImage} alt="about us icon" width="60px" height="60px" />
                     O nas
+                    </NavLink>
                 </li>
                 <li style={{ border: "none" }}>
                     <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/politics">

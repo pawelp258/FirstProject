@@ -54,12 +54,16 @@ class UnloggedLeftMenu extends Component {
                         </NavLink>
                     </li>
                     <li>
-                        <img src={AboutUsImage} alt="about us icon" width="60px" height="60px" />
+                        <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/aboutUs">
+                            <img src={AboutUsImage} alt="about us icon" width="60px" height="60px" />
                         O nas
+                        </NavLink>
                     </li>
-                    <li>
-                        <img src={PoliticImage} alt="politic icon" width="60px" height="60px" />
+                    <li style={{ border: "none" }}>
+                        <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/politics">
+                            <img src={PoliticImage} alt="politics icon" width="60px" height="60px" />
                         Polityka Prywatności
+                        </NavLink>
                     </li>
                 </ul>
             </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Info from '../../UI/icons/info.svg'
 
@@ -9,10 +9,12 @@ import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import DropMenuFilters from '../../components/dropMenuFilters/dropMenuFilters'
 import DropMenuCites from '../../components/dropMenuCites/dropMenuCites'
+import Legend from '../../components/legend.js/legend';
 
 const NavBar = props => {
     const currentUser = useSelector(state => state.firebase.profile)
     const uid = useSelector(state => state.firebase.auth.uid)
+    const [showLegend, setShowLegend] = useState(false);
 
     const showPhoto = props => {
         if (!uid) return null;
@@ -35,11 +37,15 @@ const NavBar = props => {
 
     return (
         <div className={styles.NavBar}>
+            <Legend
+                show={showLegend}
+                close={() => setShowLegend(false)} />
             {showPhoto()}
             <div className={styles.leftNavBar}>
                 <DropMenuCites />
                 <DropMenuFilters />
-                <img src={Info} alt="info_image" width="38px" height="38px" />
+                <img style={{ cursor: 'pointer' }} src={Info} alt="info_image" width="38px" height="38px"
+                    onClick={() => setShowLegend(true)} />
             </div>
         </div>
     )

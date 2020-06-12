@@ -15,41 +15,41 @@ const ChangePassword = props => {
     const [info, setInfo] = useState(null)
 
     const updatePassword = () => {
-        if(newPassword.length >= 6){
-            let user = firebase.auth().currentUser;    
-            
+        if (newPassword.length >= 6) {
+            let user = firebase.auth().currentUser;
+
             let cred = firebase.auth.EmailAuthProvider.credential(
                 props.currentUser.email,
                 oldPassword
             );
 
             user.reauthenticateWithCredential(cred)
-            .then(resp =>{
-                user.updatePassword(newPassword)
-                .then(
-                    setInfo('Hasło zostało zmienione.')
-                )
-            }).catch(err => {
-                if(err.code === 'auth/wrong-password')
-                    setInfo('Złe stare hasło.')
-            })
+                .then(resp => {
+                    user.updatePassword(newPassword)
+                        .then(
+                            setInfo('Hasło zostało zmienione.')
+                        )
+                }).catch(err => {
+                    if (err.code === 'auth/wrong-password')
+                        setInfo('Złe stare hasło.')
+                })
         }
     }
 
     const newPasswordCheck = (e) => {
-        if(e.target.value.length >= 6)
+        if (e.target.value.length >= 6)
             setInfoPassword(null)
         else
             setInfoPassword("Hasło musi składać się z conajmniej 6 znaków!")
-        
-            setNewPassword(e.target.value)
+
+        setNewPassword(e.target.value)
     }
 
     return (
         <div className={styles.changeStagesContainer}>
             <div style={{ margin: "0px 10px" }}>
                 <img src={PasswordIcon} alt="password icon" height="20px" width="20px" />
-                <span className={styles.changeStagesValue}>{props.currentUser.email}</span>
+                <span className={styles.changeStagesValue}>Zmiana hasła:</span>
             </div>
             <input
                 type="password"
