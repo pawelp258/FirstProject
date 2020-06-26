@@ -42,26 +42,26 @@ class UnloggedLeftMenu extends Component {
                 </div>
                 <ul>
                     <li onClick={this.showLoginHandler} >
-                        <img src={LogiInIcon} alt="log in icon" width="60px" height="60px" />
+                        <img src={LogiInIcon} alt="log in icon" width="40px" height="40px" />
                         Zaloguj się
                     </li>
                     <li>
                         <NavLink activeClassName={styles.UnLoggedLeftMenuActiveLink} to="/events">
                             <img
                                 src={EventsImage}
-                                alt="events icon" width="60px" height="60px" />
+                                alt="events icon" width="40px" height="40px" />
                             Wydarzenia
                         </NavLink>
                     </li>
                     <li>
                         <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/aboutUs">
-                            <img src={AboutUsImage} alt="about us icon" width="60px" height="60px" />
+                            <img src={AboutUsImage} alt="about us icon" width="40px" height="40px" />
                         O nas
                         </NavLink>
                     </li>
                     <li style={{ border: "none" }}>
                         <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/politics">
-                            <img src={PoliticImage} alt="politics icon" width="60px" height="60px" />
+                            <img src={PoliticImage} alt="politics icon" width="40px" height="40px" />
                         Polityka Prywatności
                         </NavLink>
                     </li>

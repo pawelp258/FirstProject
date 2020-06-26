@@ -40,14 +40,17 @@ const LoggedLeftMenu = props => {
             </div>
             <ul>
                 <li onClick={() => setShowEdit(true)}>
-                    <img src={ProfileEdit} alt="edit profile icon" width="60px" height="60px" />
+                    <img src={ProfileEdit} alt="edit profile icon" width="40px" height="40px" />
                     Edytuj Profil
                 </li>
                 <li>
                     <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/community">
                         <img
                             src={CommunityImage}
-                            alt="community icon" width="60px" height="60px" />
+                            alt="community icon" width="40px" height="40px"
+                            style={{
+                                padding: "8px 8px"
+                            }} />
                             Społeczność
                     </NavLink>
                 </li>
@@ -55,19 +58,19 @@ const LoggedLeftMenu = props => {
                     <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/events">
                         <img
                             src={EventsImage}
-                            alt="events icon" width="60px" height="60px" />
+                            alt="events icon" width="40px" height="40px" />
                         Wydarzenia
                     </NavLink>
                 </li>
                 <li>
                     <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/aboutUs">
-                        <img src={AboutUsImage} alt="about us icon" width="60px" height="60px" />
+                        <img src={AboutUsImage} alt="about us icon" width="40px" height="40px" />
                     O nas
                     </NavLink>
                 </li>
                 <li style={{ border: "none" }}>
                     <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/politics">
-                        <img src={PoliticImage} alt="politics icon" width="60px" height="60px" />
+                        <img src={PoliticImage} alt="politics icon" width="40px" height="40px" />
                     Polityka Prywatności
                     </NavLink>
                 </li>
@@ -76,13 +79,13 @@ const LoggedLeftMenu = props => {
                         <NavLink activeClassName={styles.LoggedLeftMenuActiveLink} to="/adminPanel">
                             <img
                                 src={PanelAdmin}
-                                alt="notification icon" width="60px" height="60px" />
+                                alt="notification icon" width="40px" height="40px" />
                         Panel Admina
                     </NavLink>
                     </li>
                 }
                 <li onClick={() => { props.signOut() }}>
-                    <img src={LogOutImage} alt="logout icon" width="60px" height="60px" />
+                    <img src={LogOutImage} alt="logout icon" width="40px" height="40px" />
                     Wyloguj się
                 </li>
             </ul>

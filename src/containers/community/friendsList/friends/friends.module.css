@@ -11,6 +11,8 @@
   padding: 0px;
   list-style-type: none;
   font-size: 20px;
+  position: relative;
+  overflow: auto;
 }
 
 .FriendsContainer ol > li {

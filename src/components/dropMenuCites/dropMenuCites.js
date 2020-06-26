@@ -22,31 +22,31 @@ const DropMenuCites = props => {
     }
 
     const content = (
-        <div className={styles.dropMenuCitesContent}>    
+        <div className={styles.dropMenuCitesContent}>
             <ol>
                 <li onClick={() => changeCity({
-                    name:"Toruń",
+                    name: "Toruń",
                     coords: { lat: 53.01, lng: 18.61 }
-                    })}>Toruń</li>
+                })}>Toruń</li>
                 <li onClick={() => changeCity({
-                    name:"Bydgoszcz",
+                    name: "Bydgoszcz",
                     coords: { lat: 53.1234804, lng: 18.0084378 }
-                    })}>Bydgoszcz</li>
+                })}>Bydgoszcz</li>
             </ol>
         </div>
     )
 
     return (
-        <div className={styles.dropMenuCitesContainer }   ref={ref}>
-            <div onClick={()=>setShowMenu(!showMenu)}>
-                <img src={CityIcon} alt="city icon" width="30px" height="30px" style={{margin:'0px 5px 0px 0px'}}/>
-                {props.current_city.name}
+        <div className={styles.dropMenuCitesContainer} ref={ref}>
+            <div className={styles.CityNameContainer} onClick={() => setShowMenu(!showMenu)}>
+                <img src={CityIcon} alt="city icon" width="30px" height="30px" style={{ margin: '0px 5px 0px 0px' }} />
+                <span className={styles.cityNameStyle}>{props.current_city.name} <i className="fas fa-caret-down"></i></span>
             </div>
-            {   
+            {
                 showMenu ? content : null
             }
         </div>
-    )  
+    )
 }
 
 const mapStateToProps = state => {

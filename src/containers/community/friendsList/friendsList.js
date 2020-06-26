@@ -20,7 +20,7 @@ const FriendsList = (props) => {
                     className={!friendsActive ? styles.FriendListSwitchActiveButton : styles.FriendListSwitchButton}
                     style={{ borderRadius: '0 15px 0 0' }}
                     onClick={() => setFriendsActive(false)}
-                >Zaprosznia</div>
+                >Zaproszenia</div>
             </div>
             <div>
                 {friendsActive ?

@@ -17,22 +17,22 @@ const DropMenuFilters = props => {
 
 
     const content = (
-            <ObjectFilters setShowMenu={()=>setShowMenu(!showMenu)}/>
+        <ObjectFilters setShowMenu={() => setShowMenu(!showMenu)} />
     )
 
     return (
-        <div className={styles.dropMenuFiltersContainer }   ref={ref}>
+        <div className={styles.dropMenuFiltersContainer} ref={ref}>
             <img
-                src={Filters} 
-                alt="filters_image" 
-                width="50vw" height="50vh" 
-                onClick={()=>setShowMenu(!showMenu)}
-                style={{cursor:"pointer"}}/>
-            {   
+                src={Filters}
+                alt="filters_image"
+                width="40px" height="40px"
+                onClick={() => setShowMenu(!showMenu)}
+                style={{ cursor: "pointer" }} />
+            {
                 showMenu ? content : null
             }
         </div>
-    )  
+    )
 }
 
 export default DropMenuFilters;

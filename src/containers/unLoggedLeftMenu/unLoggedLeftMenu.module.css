@@ -1,50 +1,48 @@
-.UnLoggedLeftMenu{
-    font-size: 12px;
-    height: 100vh;
-    width: 230px;
-    background-color: #2C383E;
-    padding: 20px 0 0 0;
-    box-sizing: border-box;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;  
-    z-index: 500;          
+.UnLoggedLeftMenu {
+  font-size: 12px;
+  height: 100vh;
+  width: 230px;
+  background-color: #2c383e;
+  padding: 20px 0 0 0;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 500;
 }
 
 .UnLoggedLeftMenu > ul {
-    list-style: none;
-    padding: 20px 0 0 0;
-    margin: 0;
+  list-style: none;
+  padding: 20px 0 0 0;
+  margin: 0;
 }
 
 .UnLoggedLeftMenu a {
-    color: white;
-    width: 100%;
-    display: block;
-    text-decoration: none;
+  color: white;
+  width: 100%;
+  display: block;
+  text-decoration: none;
 }
 
 .UnLoggedLeftMenu > ul > li {
-    margin: 0px;
-    padding: 0px 0px 0px 0px;
-    color: white;
-    width: 100%;
-    text-align: left;
-    font-weight: bold;
-
+  margin: 10px 0 0 0px;
+  padding: 0px 0px 0px 0px;
+  color: white;
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
 }
 
-.UnLoggedLeftMenu > ul > li:hover{
-    cursor: pointer;
-    background-color: grey;
+.UnLoggedLeftMenu > ul > li:hover {
+  cursor: pointer;
+  background-color: grey;
 }
 
 .UnLoggedLeftMenuActiveLink {
-    background-color: #333;
-    border-top: 4px solid #1C1F23;
-    border-bottom: 4px solid #4B5458;
-    color: #69B4D6 !important;
-    box-sizing: border-box;
-    
+  background-color: #333;
+  border-top: 4px solid #1c1f23;
+  border-bottom: 4px solid #4b5458;
+  color: #69b4d6 !important;
+  box-sizing: border-box;
 }

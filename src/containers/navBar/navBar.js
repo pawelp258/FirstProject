@@ -41,10 +41,10 @@ const NavBar = props => {
                 show={showLegend}
                 close={() => setShowLegend(false)} />
             {showPhoto()}
-            <div className={styles.leftNavBar}>
+            <div className={styles.rightNavBar}>
                 <DropMenuCites />
                 <DropMenuFilters />
-                <img style={{ cursor: 'pointer' }} src={Info} alt="info_image" width="38px" height="38px"
+                <img style={{ cursor: 'pointer' }} src={Info} alt="info_image" width="30px" height="30px"
                     onClick={() => setShowLegend(true)} />
             </div>
         </div>

@@ -33,7 +33,7 @@ const EventUsers = props => {
     const isFriend = member => {
         if (member == uid) return false;
         let decision = true;
-        currentUser.znajomi.map(friend => {
+        currentUser.znajomi && currentUser.znajomi.map(friend => {
             if (friend.id == member) decision = false;
         })
 

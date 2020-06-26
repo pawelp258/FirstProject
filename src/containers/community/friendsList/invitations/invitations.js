@@ -22,7 +22,7 @@ const Invitations = () => {
 
 
     useEffect(() => {
-        { currentUser.znajomi && getFriends() }
+        { currentUser.zaproszenia && getFriends() }
     }, [currentUser])
 
     const getFriends = async () => {
@@ -73,7 +73,7 @@ const Invitations = () => {
                 const currentUserRef = firebase.firestore().collection('uzytkownik').doc(uid);
                 const newUserRef = firebase.firestore().collection('uzytkownik').doc(resp.docs[0].id);
                 console.log(currentUser.znajomi)
-                if (currentUser.znajomi.includes(newUserRef)) {
+                if (currentUser.znajomi && currentUser.znajomi.includes(newUserRef)) {
                     setError("Ten użytkownik jest twoim znajomym.")
                     return;
                 }
@@ -104,10 +104,10 @@ const Invitations = () => {
                             <span className={styles.FriendsLiNick}>{user.nick}</span>
                             <div className={styles.FriendsLiIcons}>
                                 <span style={{ cursor: "pointer", margin: "0 5px" }} onClick={() => addFriend(user.id)}>
-                                    <i class="fas fa-user-plus"></i>
+                                    <i className="fas fa-user-plus"></i>
                                 </span>
                                 <span style={{ cursor: "pointer", margin: "0 5px" }} onClick={() => removeFriend(user.id)}>
-                                    <i class="fas fa-user-minus"></i>
+                                    <i className="fas fa-user-minus"></i>
                                 </span>
                             </div>
                         </li>
